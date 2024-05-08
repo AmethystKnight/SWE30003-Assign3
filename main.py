@@ -1,5 +1,5 @@
 from Mediator import Mediator
-from Manager import Manager
+import Manager as mg
 from DatabaseManager import DatabaseHandler
 from Client import ServerAPI
 import time
@@ -18,10 +18,10 @@ if __name__ == "__main__":
                                        name="databaseManager")
 
     # Create Manager classes
-    OrderManager = Manager(mediator, "orderManager")
-    FOHPortal = Manager(mediator, "FOHPortal")
-    BOHPortal = Manager(mediator, "BOHPortal")
-    BusinessPortal = Manager(mediator, "BusinessPortal")
+    OrderManager = mg.OrderManager(mediator, "orderManager")
+    FOHPortal = mg.FOHManager(mediator, "FOHPortal")
+    BOHPortal = mg.BOHManager(mediator, "BOHPortal")
+    BusinessPortal = mg.BusinessPortal(mediator, "BusinessPortal")
     webServerClient = ServerAPI(mediator=mediator, url=url, name="webServerClient")
 
     # Subscribe to the Mediator
@@ -36,6 +36,8 @@ if __name__ == "__main__":
 
     # Main loop of program
     while True:
+        # I think here we should be call OrderManger.Run and it should be responsible for starting the system running.
+
         # connect to webserver for updates ##### Make sure webserver is running first
         webServerClient.run()
         mediator.send_messages()
