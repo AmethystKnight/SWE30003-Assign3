@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manager Portal</title>
+</head>
+<body>
+    <h1>Current Number of Customers: {{ current_customers }}</h1>
+    <form action="/api/endpoint" method="post">
+        <label for="new_customers">Enter New Number of Customers:</label><br>
+        <input type="text" id="new_customers" name="new_customers"><br>
+        <input type="submit" value="Update Number of Customers">
+    </form>
+</body>
+</html>
