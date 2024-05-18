@@ -88,19 +88,10 @@ class CafeDatabaseManager:
         yesterday = datetime.now() - timedelta(days=1)
         start_of_yesterday = yesterday.replace(hour=0, minute=0, second=0, microsecond=0)
         end_of_yesterday = yesterday.replace(hour=23, minute=59, second=59, microsecond=999999)
-
-        query = "SELECT * FROM salesRecord WHERE datetime BETWEEN %s AND %s"
+        query = "SELECT * FROM salesrecord WHERE datetime BETWEEN %s AND %s"
         self.cursor.execute(query, (start_of_yesterday, end_of_yesterday))
         return self.cursor.fetchall()
 
-    def get_yesterdays_sales(self):
-        yesterday = datetime.now() - timedelta(days=1)
-        start_of_yesterday = yesterday.replace(hour=0, minute=0, second=0, microsecond=0)
-        end_of_yesterday = yesterday.replace(hour=23, minute=59, second=59, microsecond=999999)
-
-        query = "SELECT * FROM salesRecord WHERE datetime BETWEEN %s AND %s"
-        self.cursor.execute(query, (start_of_yesterday, end_of_yesterday))
-        return self.cursor.fetchall()
 
 if __name__ == "__main__":
     # Example usage
@@ -135,7 +126,7 @@ if __name__ == "__main__":
     db_manager.add_sales_record('2024-05-18 10:30:00', 'Latte', 5)
 
     # Delete sales records by date range
-    db_manager.delete_sales_record_by_date_range('2024-05-01', '2024-05-31')
+    db_manager.delete_sales_record_by_date_range('2024-05-01', '2024-05-02')
 
     # Fetch yesterday's sales
     yesterdays_sales = db_manager.get_yesterdays_sales()
