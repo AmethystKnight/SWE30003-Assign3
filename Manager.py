@@ -88,7 +88,9 @@ class Manager(ABC):
 ########################## CHILD CLASSES BELOW #############################
 ############################################################################
 
-class BOHManager(Manager):
+#class FOHPortal in front_of_house_portal.py
+#class BusinessPortal in business_portal.py
+class BOHPortal(Manager):
     def __init__(self, mediator, name):
         super().__init__(mediator, name)
         self.orderList = []
@@ -125,6 +127,6 @@ if __name__ == "__main__":
     # Create a mediator instance
     mediator = None
     # Create a BOHManager instance
-    manager = BOHManager(mediator, "BOH Manager")
+    manager = BOHPortal(mediator, "BOH Manager")
     # Test the login functionality
     manager.start()

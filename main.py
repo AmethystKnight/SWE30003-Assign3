@@ -20,7 +20,7 @@ if __name__ == "__main__":
     # Create Manager classes
     OrderManager = mg.OrderManager(mediator, "orderManager")
     FOHPortal = mg.FOHManager(mediator, "FOHPortal")
-    BOHPortal = mg.BOHManager(mediator, "BOHPortal")
+    BOHPortal = mg.BOHPortal(mediator, "BOHPortal")
     BusinessPortal = mg.BusinessPortal(mediator, "BusinessPortal")
     webServerClient = ServerAPI(mediator=mediator, url=url, name="webServerClient")
 
