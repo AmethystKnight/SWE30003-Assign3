@@ -1,4 +1,4 @@
-class Mediator:
+class OrderManager:
     def __init__(self):
         self.comms_list = {}
         self.message_list = []

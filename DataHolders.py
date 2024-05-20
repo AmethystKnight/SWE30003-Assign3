@@ -15,7 +15,25 @@ class OrderItem:
 
     def __str__(self):
         return f"Seat: {self.seat}, Item: {self.item}, Allergy: {self.allergy}, Alteration: {self.alteration}"
-
+    def __getitem__(self, key):
+        if key == 'seat':
+            return self.seat
+        elif key == 'item':
+            return self.item
+        elif key == 'allergy':
+            return self.allergy
+        elif key == 'alteration':
+            return self.alteration
+        elif key == 0:
+            return self.seat
+        elif key == 1:
+            return self.item
+        elif key == 2:
+            return self.allergy
+        elif key == 3:
+            return self.alteration
+        else:
+            raise KeyError(f"Invalid key: {key}")
 
 class Order:
     def __init__(self, table, diningRoom, orders: list, time=None):

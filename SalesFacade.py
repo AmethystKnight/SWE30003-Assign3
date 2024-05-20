@@ -31,10 +31,17 @@ class SalesFacade:
 
     def add_order_item(self, table_number, order_item):
         if table_number not in self.orders:
-            return f"No order found for table {table_number}."
+            return (False, f"No order found for table {table_number}.")
+        item_name = order_item[1]  # Assuming the name is in the second position of order_item tuple
+        Allergen = order_item[2]  # Assuming the name is in the second position of order_item tuple
+        # print(f"item: {item_name}, Allergy: {Allergen}")
+        if not self.db_manager.check_item_existence(item_name):
+            return (False, f"Item {item_name} does not exist in the menu.")
+        if self.db_manager.check_allergy(item_name, Allergen):
+            return (False, f"Item {item_name} This contains: {Allergen}.")
         # new_item = DataHolders.OrderItem(*order_item)
         self.orders[table_number].orders.append(order_item)
-        return f"Added item {order_item} to table {table_number}."
+        return (True, f"Added item {order_item} to table {table_number}.")
 
     def process_payment(self, table_number, payment_type, issue_receipt):
         if table_number not in self.orders:

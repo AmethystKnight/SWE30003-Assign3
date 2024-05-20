@@ -1,12 +1,12 @@
 import tkinter as tk
 from tkinter import messagebox
 from datetime import datetime
-from Manager import Manager
+from Portal import Portal
 from ManagementFacade import ManagementFacade
 from DatabaseManager import DatabaseManager
 
 
-class BusinessPortal(Manager):
+class BusinessPortal(Portal):
     def __init__(self, mediator, facade):
         super().__init__(mediator, "Business Portal")
         self.facade = facade

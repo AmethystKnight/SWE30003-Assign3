@@ -1,12 +1,10 @@
 import tkinter as tk
 from tkinter import messagebox
-from abc import ABC, abstractmethod
-from Manager import Manager
+from Portal import Portal
 from SalesFacade import SalesFacade
 import DataHolders
-from datetime import datetime
 
-class FOHPortal(Manager):
+class FOHPortal(Portal):
     def __init__(self, mediator, name, sales_facade):
         super().__init__(mediator, name)
         self.portal_window = None
@@ -116,8 +114,12 @@ class FOHPortal(Manager):
             self.sales_facade.orders[table_number] = DataHolders.Order(table_number, "Main Dining", [])
 
         order_item = DataHolders.OrderItem(seat_number, item, allergy, alterations)
-        self.sales_facade.orders[table_number].add_order_item(order_item)
-        self.result_text.insert(tk.END, f"Added item: {order_item}\n")
+
+        item_added, return_str = self.sales_facade.add_order_item(table_number, order_item   )
+        if item_added:
+            self.result_text.insert(tk.END, f"Added item: {order_item}\n")
+        else:
+            self.result_text.insert(tk.END, f"{return_str}\n")
     def create_new_order(self):
         table_number = self.new_order_table_number_entry.get()
         if not table_number:

@@ -1,5 +1,5 @@
-from Mediator import Mediator
-import Manager as mg
+from OrderManager import OrderManager
+import Portal as mg
 from DatabaseManager import DatabaseManager
 
 import time
@@ -9,7 +9,7 @@ if __name__ == "__main__":
     url = 'http://192.168.20.7:8000/api/endpoint'
 
     # Create an instance of the Mediator class
-    mediator = Mediator()
+    mediator = OrderManager()
 
     OrderManager = mg.OrderManager(mediator, "orderManager")
     FOHPortal = mg.FOHManager(mediator, "FOHPortal")
@@ -17,7 +17,7 @@ if __name__ == "__main__":
     BusinessPortal = mg.BusinessPortal(mediator, "BusinessPortal")
 
     # Subscribe to the Mediator
-     mediator.add_to_comms(OrderManager.name, OrderManager)
+    mediator.add_to_comms(OrderManager.name, OrderManager)
     mediator.add_to_comms(FOHPortal.name, FOHPortal)
     mediator.add_to_comms(BOHPortal.name, BOHPortal)
     mediator.add_to_comms(BusinessPortal.name, BusinessPortal)
@@ -28,4 +28,5 @@ if __name__ == "__main__":
         # I think here we should be call OrderManger.Run and it should be responsible for starting the system running.
         mediator.send_messages()
         time.sleep(2)
+
 

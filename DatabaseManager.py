@@ -79,6 +79,11 @@ class DatabaseManager:
         self.cursor.execute(query, (start_date, end_date))
         self.conn.commit()
 
+    def check_item_existence(self, name):
+        query = "SELECT * FROM menu WHERE Name = %s"
+        self.cursor.execute(query, (name,))
+        return self.cursor.fetchone() is not None
+
     def check_allergy(self, dish, allergen):
         query = "SELECT * FROM menu WHERE Name = %s AND Allergy = %s"
         self.cursor.execute(query, (dish, allergen))
@@ -123,7 +128,11 @@ if __name__ == "__main__":
 
     # Delete menu item
     db_manager.delete_menu_item('Bagel')
-
+    item_name = 'Esppresso'
+    if db_manager.check_item_existence(item_name):
+        print(f"{item_name} exists in the menu.")
+    else:
+        print(f"{item_name} does not exist in the menu.")
     # Update menu item price
     db_manager.update_menu_item_price('Latte', 3.75)
 
