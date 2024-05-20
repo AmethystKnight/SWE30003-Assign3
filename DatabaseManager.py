@@ -2,7 +2,7 @@ import mysql.connector
 from mysql.connector import errorcode
 from datetime import datetime, timedelta
 
-class CafeDatabaseManager:
+class DatabaseManager:
     def __init__(self, user, password, host, database):
         self.config = {
             'user': user,
@@ -92,10 +92,15 @@ class CafeDatabaseManager:
         self.cursor.execute(query, (start_of_yesterday, end_of_yesterday))
         return self.cursor.fetchall()
 
+    def get_sales_records_by_date_range(self, start_date, end_date):
+        query = "SELECT * FROM salesRecord WHERE datetime BETWEEN %s AND %s"
+        self.cursor.execute(query, (start_date, end_date))
+        return self.cursor.fetchall()
+
 
 if __name__ == "__main__":
     # Example usage
-    db_manager = CafeDatabaseManager('root', 'password', '127.0.0.1', 'CafeDB')
+    db_manager = DatabaseManager('root', 'password', '127.0.0.1', 'CafeDB')
 
     # Fetch entire menu
     menu = db_manager.get_menu()

@@ -32,19 +32,9 @@ class Manager:
 ########################## CHILD CLASSES BELOW #############################
 ############################################################################
 
-
-
-class FOHManager(Manager):
-    def process_data(self):
-        print(f"{self.name} has received the following data: \n {self.data}")
-
 ############################################################################
-class OrderManager(Manager):
-    def process_data(self):
-        print(f"{self.name} has received the following data: \n {self.data}")
+# BOHManager is out side the business operations we chose to display for the assignment so only a simple imp below
 
-
-############################################################################
 class BOHManager(Manager):
     def __init__(self, mediator, name):
         super().__init__(mediator, name)
@@ -65,7 +55,3 @@ class BOHManager(Manager):
     def process_data(self):
         print(f"{self.name} has received the following data: \n {self.data}")
 
-############################################################################
-class BusinessPortal(Manager):
-    def process_data(self):
-        print(f"{self.name} has received the following data: \n {self.data}")

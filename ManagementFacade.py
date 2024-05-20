@@ -1,7 +1,7 @@
-from DatabaseManager import CafeDatabaseManager
+from DatabaseManager import DatabaseManager
 from datetime import datetime, timedelta
 
-class CafeManagementFacade:
+class ManagementFacade:
     def __init__(self, db_manager):
         self.db_manager = db_manager
 
@@ -17,9 +17,12 @@ class CafeManagementFacade:
     def delete_menu_item(self, name):
         self.db_manager.delete_menu_item(name)
 
+    def get_sales_records_by_date_range(self, start_date, end_date):
+        return self.db_manager.get_sales_records_by_date_range(start_date, end_date)
+
 if __name__ == "__main__":
-    db_manager = CafeDatabaseManager('root', 'password', '127.0.0.1', 'CafeDB')
-    management_facade = CafeManagementFacade(db_manager)
+    db_manager = DatabaseManager('root', 'password', '127.0.0.1', 'CafeDB')
+    management_facade = ManagementFacade(db_manager)
 
     # Get yesterday's sales
     yesterdays_sales = management_facade.get_yesterdays_sales()

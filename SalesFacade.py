@@ -1,7 +1,7 @@
-from DatabaseManager import CafeDatabaseManager
+from DatabaseManager import DatabaseManager
 from datetime import datetime
 
-class CafeSalesFacade:
+class SalesFacade:
     def __init__(self, db_manager):
         self.db_manager = db_manager
 
@@ -17,8 +17,8 @@ class CafeSalesFacade:
         return True
 
 if __name__ == "__main__":
-    db_manager = CafeDatabaseManager('root', 'password', '127.0.0.1', 'CafeDB')
-    sales_facade = CafeSalesFacade(db_manager)
+    db_manager = DatabaseManager('root', 'password', '127.0.0.1', 'CafeDB')
+    sales_facade = SalesFacade(db_manager)
 
     # Example sales
     sales = [
