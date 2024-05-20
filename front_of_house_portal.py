@@ -198,7 +198,7 @@ class FOHPortal(Manager):
         if self.logged_in and not self.portal_window:
             self.portal_window = tk.Tk()
             self.portal_window.title("FOH Portal")
-            self.portal_window.geometry("400x600")
+            self.portal_window.geometry("500x900")
             self.create_portal_widgets()
             self.portal_window.mainloop()
 

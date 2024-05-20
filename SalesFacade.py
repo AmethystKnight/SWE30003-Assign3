@@ -1,7 +1,7 @@
 from DatabaseManager import DatabaseManager
 from datetime import datetime
 import DataHolders
-
+from Payment import PaymentProcessor
 class SalesFacade:
     def __init__(self, db_manager=DatabaseManager('root', 'password', '127.0.0.1', 'CafeDB')):
         self.db_manager = db_manager
@@ -44,14 +44,24 @@ class SalesFacade:
         order = self.orders.pop(table_number)
         sales = [(item.item, 1, item.allergy) for item in order.orders]  # Simplified assumption: quantity = 1
 
-        # Call sell_items to write these items to the salesrecord database
-        if self.sell_items(sales):
-            receipt = f"Receipt for table {table_number}: {order}, Payment Type: {payment_type}"
-            if issue_receipt:
-                receipt += ", Receipt Issued"
-            return receipt
+        status = False
+        try:
+            status = PaymentProcessor.process_payment()
+            print(f"Payment status: {status}")
+        except Exception as e:
+            print(f"Error: {e}")
+
+        if status:
+            # Call sell_items to write these items to the salesrecord database
+            if self.sell_items(sales):
+                receipt = f"Receipt for table {table_number}: {order}, Payment Type: {payment_type}"
+                if issue_receipt:
+                    receipt += ", Receipt Issued"
+                return receipt
         else:
+            self.create_order(order)
             return f"Failed to process payment for table {table_number}."
+
 
     def sell_items(self, sales):
         for sale in sales:
