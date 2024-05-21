@@ -13,12 +13,12 @@ class MenuFacade:
             result = self.db_manager.get_menu()
 
         if columns:
-            result = self.filter_columns(result, columns)
+            result = self._filter_columns(result, columns)
 
         return result
 
-    def filter_columns(self, rows, columns):
-        return [[row[col - 1] for col in columns] for row in rows]
+    def _filter_columns(self, rows, columns):
+        return [tuple(row[col - 1] for col in columns) for row in rows]
 
 
 # Example usage:
@@ -56,15 +56,5 @@ if __name__ == "__main__":
     for item in items_with_gluten_columns_2_3:
         print(item)
 
-    print("\nItems with Gluten (Columns 1 and 2):")
-    items_with_gluten_columns_2_3 = menu_facade.get_menu(contains=True, allergy='Gluten', columns=(1, 2))
-    for item in items_with_gluten_columns_2_3:
-        print(item)
-
-    print("\nItems with Gluten (Columns 1 and 1):")
-    items_with_gluten_columns_2_3 = menu_facade.get_menu(contains=True, allergy='Gluten', columns=(1, 1))
-    for item in items_with_gluten_columns_2_3:
-        print(item)
-
-
+    print(menu)
     db_manager.close()
