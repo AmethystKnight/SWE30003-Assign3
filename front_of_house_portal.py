@@ -1,10 +1,10 @@
 import tkinter as tk
 from tkinter import messagebox
-from Portal import Portal
+from Display import Display
 from SalesFacade import SalesFacade
 import DataHolders
 
-class FOHPortal(Portal):
+class FOHPortal(Display):
     def __init__(self, mediator, name, sales_facade):
         super().__init__(mediator, name)
         self.portal_window = None

@@ -1,5 +1,5 @@
 from OrderManager import OrderManager
-import Portal as mg
+import Display as mg
 from DatabaseManager import DatabaseManager
 
 import time

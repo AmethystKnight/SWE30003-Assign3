@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 from abc import ABC, abstractmethod
 
-class Portal(ABC):
+class Display(ABC):
     def __init__(self, mediator, name):
         self.mediator = mediator
         self.data = None
@@ -90,7 +90,7 @@ class Portal(ABC):
 
 #class FOHPortal in front_of_house_portal.py
 #class BusinessPortal in business_portal.py
-class BOHPortal(Portal):
+class BOHPortal(Display):
     def __init__(self, mediator, name):
         super().__init__(mediator, name)
         self.orderList = []
