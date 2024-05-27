@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vinchenzo's Payments</title>
+</head>
+<body>
+    <h1>Vinchenzo's Payments</h1>
+    <form action="/api/endpoint" method="post">
+        <label for="status">Set Payment Status:</label><br>
+        <select name="status" id="status">
+            <option value="True" {% if status %}selected{% endif %}>Success</option>
+            <option value="False" {% if not status %}selected{% endif %}>Fail</option>
+        </select><br>
+        <input type="submit" value="Set Status">
+    </form>
+</body>
+</html>
