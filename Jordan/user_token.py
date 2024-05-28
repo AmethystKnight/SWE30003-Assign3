@@ -1,6 +1,7 @@
 import uuid
 from constants import TKeys
 
+
 class User_Token:
     def __init__(self, un, pa):
         self._user_name = un
@@ -10,4 +11,4 @@ class User_Token:
 
     @property
     def data(self) -> dict:
-        return self._data.copy()
+        return self._data

@@ -4,6 +4,8 @@ from user_token import User_Token
 
 
 class LoginPortal:
+    """Logs in user and instantiates portal once it is finished processing
+    via ACL inside Login"""
     def __init__(self, portal):
         self._user_name = None
         self._password = None

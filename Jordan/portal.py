@@ -5,6 +5,7 @@ from constants import TKeys
 from user_token import User_Token
 
 class Portal(ITokenGuide):
+    """Main Portal, _portal is the current context"""
     def __init__(self, exit_func):
         self._exit = partial(exit_func[0], exit_func[1])
         self._token = None

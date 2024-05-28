@@ -1,5 +1,6 @@
 from threading import Lock
 
+
 class Singleton:
     _instance = None
     _lock: Lock = Lock()

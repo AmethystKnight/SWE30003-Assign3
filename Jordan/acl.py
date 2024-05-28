@@ -10,7 +10,7 @@ class ACL(ITokenGuide):
         self._token = None
 
     def posses_token(self, user: User_Token):
-        from portal_interfaces import BusinessPortal, FOHPortal, BOHPortal
+        from portal import BusinessPortal, FOHPortal, BOHPortal
 
         self._portals = {'admin': BusinessPortal, 'foh': FOHPortal, 'boh': BOHPortal}
 
@@ -27,6 +27,9 @@ class ACL(ITokenGuide):
     def guide_token(self, next_guide: ITokenGuide) -> bool:
         privilege = self._token.data.get(TKeys.Privilege, -1)
         if privilege < next_guide.access_level():
+            # print('current data', self._token.data)
+            # print(privilege)
+            # print(next_guide.access_level())
             print("You do not have access")
             return False
         else:
