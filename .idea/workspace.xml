@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a021ee40-bac8-454f-bf4b-2054debdc5e0" name="Changes" comment="refactored the code to be in their own files, main.py to play the logging loop">
+      <change afterPath="$PROJECT_DIR$/Jordan/mediator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jordan/proto/Inherit_Module.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jordan/proto/Login.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jordan/proto/Portal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jordan/acl.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/acl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jordan/login_portal.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/login_portal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jordan/portal.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/portal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jordan/portal_interfaces.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/portal_interfaces.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jordan/session.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/session.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jordan/singleton.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/singleton.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jordan/user_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/user_token.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2gD5Nbee19m5rTLi1wTWzvuCwjQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Jordan/Documents/GitHub/SWE30003-Assignment3/Jordan/proto",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jordan\Documents\GitHub\SWE30003-Assignment3\Jordan\proto" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jordan\Documents\GitHub\SWE30003-Assignment3\Microservices" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a021ee40-bac8-454f-bf4b-2054debdc5e0" name="Changes" comment="" />
+      <created>1715219268603</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715219268603</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Base architecture.&#10;&#10;Inherit_Module.py&#10;contaminates reusable inheritable classes that act as interfaces, virtual and abstract classes.&#10;&#10;Login.py&#10;contains all login related logic&#10;&#10;Portal.py&#10;contains main portal container and some placeholder context">
+      <created>1715319252855</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715319252855</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Functioning login.&#10;Based on documented login architecture &#10;Demonstrating patterns:&#10;ACL&#10;Strategy&#10;Mediator&#10;Singleton&#10;Factory">
+      <created>1715673287990</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715673287990</updated>
+    </task>
+    <task id="LOCAL-00003" summary="meta">
+      <created>1716852181806</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716852181806</updated>
+    </task>
+    <task id="LOCAL-00004" summary="refactored the code to be in their own files, main.py to play the logging loop">
+      <created>1716856067479</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716856067479</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Base architecture.&#10;&#10;Inherit_Module.py&#10;contaminates reusable inheritable classes that act as interfaces, virtual and abstract classes.&#10;&#10;Login.py&#10;contains all login related logic&#10;&#10;Portal.py&#10;contains main portal container and some placeholder context" />
+    <MESSAGE value="Functioning login.&#10;Based on documented login architecture &#10;Demonstrating patterns:&#10;ACL&#10;Strategy&#10;Mediator&#10;Singleton&#10;Factory" />
+    <MESSAGE value="meta" />
+    <MESSAGE value="refactored the code to be in their own files, main.py to play the logging loop" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored the code to be in their own files, main.py to play the logging loop" />
+  </component>
+</project>
