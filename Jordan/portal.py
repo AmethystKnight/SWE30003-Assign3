@@ -17,7 +17,7 @@ class MainPortal(ITokenGuide,Portal):
         self._token = None
         self._portal = None
         from ui import portal_ui_container
-        self._ui = portal_ui_container()
+        self._ui = portal_ui_container(self)
         # self._ui = {'main': portal_ui_container}
         # self.portal_commands = {'help': partial(self._ui['main'].print_help, self.portal_commands),
         #                         'login': self.login,
@@ -25,11 +25,7 @@ class MainPortal(ITokenGuide,Portal):
         self.login()
         # main loop
         while True:
-            user_in = self._ui['main'].user_in()
-            if user_in in self.portal_commands:
-                self.portal_commands[user_in]()
-            else:
-                print('invalid input')
+            self._ui.user_in()
 
     #     while True:
     #         user_in = input("type help for commands")
@@ -53,6 +49,8 @@ class MainPortal(ITokenGuide,Portal):
 
     def get_portal(self) -> vars:
         return self._portal
+    def get_exit(self) -> partial:
+        return self._exit
 
     def login(self):
         print('logging in..')
@@ -67,13 +65,24 @@ class FOHPortal(Portal):
     def __init__(self, main_portal):
         from ui import foh_ui_container
 
-        self.portal_commands = {'menu': partial(self._ui['main'].print_help, self.portal_commands),
-                                'dinning_room': self.login,
-                                'orders': self._exit}
+        # self.portal_commands = {'menu': partial(self._ui['main'].print_help, self.portal_commands),
+        #                         'dinning_room': self.login,
+        #                         'orders': self._exit}
         # print("Front of House Portal Access")
-        self.parent = main_portal
-        self.parent.ui.context = foh_ui_container()
-        self.context = self.dinning_
+        # self.parent = main_portal
+        # self.parent.ui.context = foh_ui_container()
+        self._ui = foh_ui_container()
+        self.context = self.set_context_dinning()
+
+    def set_context_menu(self):
+        self.context = Menu()
+
+    def set_context_dinning(self):
+        from dinning_room import Dinning_Room
+        self.context = Dinning_Room()
+
+    def get_ui(self) -> foh_ui_container:
+        return self._ui
 
 
 from singleton import Singleton
@@ -90,7 +99,6 @@ class Menu(Portal):
         self.hot_drinks_menu = None
         self.dessert_menu = None
         self.menu = None
-        # visual pop up
         self.ui =
 
     def load_menu(self, token: 'User_Token', token_guide: 'ITokenGuide'):
@@ -118,7 +126,7 @@ class Menu(Portal):
             return self.menu[name].copy()
         except KeyError:
             print('item does not exist @ Menu -> get_item')
-            return None
+            return {}
 
 
 
