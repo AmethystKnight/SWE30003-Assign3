@@ -10,7 +10,7 @@ class Order:
 
 
 class Table:
-    def __int__(self, number: int, capacity: int):
+    def __init__(self, number: int, capacity: int):
         from invoice_manager import Invoice_Manager
         self.number = number
         self.capacity = capacity
@@ -33,15 +33,17 @@ class Dinning_Room:
     this should also be true for a reservation template.
     Tables SCHEMA: {table number:int {table:string: table:Table, reservation:dict}}"""
 
-    def __int__(self):
+    def __init__(self):
         from invoice_manager import Invoice_Manager
         from facades import Facade_Dinning_Room_DB
         from helper_functions import get_current_time_in_melbourne
+        from ui import dinning_room_ui_container
         dinning_db = Facade_Dinning_Room_DB()
         self._tables = dinning_db.get_tables()
         self._get_time = get_current_time_in_melbourne
         self._invoice_manager = Invoice_Manager()
         self._booking_reference = {table_number: table['reservation'] for table_number, table in self._tables.items()}
+        self._ui = dinning_room_ui_container(self)
 
     def create_booking(self, table_number: int, time: str) -> bool:
         try:
@@ -63,6 +65,20 @@ class Dinning_Room:
         for t in self._booking_reference[table_number]:
             if datetime.strptime(t, '%I:%M%p') >= datetime.strptime(time, '%I:%M%p'):
                 self._booking_reference[table_number][t][1] = False
+
+    def get_all_tables_basic(self) -> list:
+        """Returns all tables as a representation of their number formatted like: Table_n and reservation value."""
+        tables = []
+        for table_number, table_info in self._tables.items():
+            reservation_status = any(reservation[1] for reservation in table_info['reservation'].values())
+            tables.append(f"Table_{table_number}, {'Reserved' if reservation_status else 'Free'}")
+        return tables
+
+    def get_ui(self) -> 'dinning_room_ui_container':
+        return self._ui
+
+    def get_tables(self) -> dict:
+        return self._tables
 
 class Order_Manager:
     # TODO: add functionality

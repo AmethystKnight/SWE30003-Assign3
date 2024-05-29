@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a021ee40-bac8-454f-bf4b-2054debdc5e0" name="Changes" comment="pushing wip before implementing MVC pattern">
+    <list default="true" id="a021ee40-bac8-454f-bf4b-2054debdc5e0" name="Changes" comment="ui change save">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jordan/dinning_room.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/dinning_room.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jordan/invoice_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/invoice_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jordan/login_portal.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/login_portal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Jordan/portal.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/portal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jordan/session.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/session.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Jordan/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716857973109</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ui change save">
+      <created>1716970259483</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1716970259483</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -111,6 +122,7 @@
     <MESSAGE value="Functioning login.&#10;Based on documented login architecture &#10;Demonstrating patterns:&#10;ACL&#10;Strategy&#10;Mediator&#10;Singleton&#10;Factory" />
     <MESSAGE value="meta" />
     <MESSAGE value="refactored the code to be in their own files, main.py to play the logging loop" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored the code to be in their own files, main.py to play the logging loop" />
+    <MESSAGE value="ui change save" />
+    <option name="LAST_COMMIT_MESSAGE" value="ui change save" />
   </component>
 </project>

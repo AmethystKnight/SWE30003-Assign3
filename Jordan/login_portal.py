@@ -13,7 +13,7 @@ class LoginPortal:
         self._has_logged: bool = False
         self._p_ref = portal
         self._logins = [('admin', 'password'), ('foh', 'password'), ('boh', 'password')]
-
+        #TODO: secure login info
     def login(self) -> bool:
         from acl import ACL
 

@@ -1,42 +1,31 @@
-from portal_interfaces import ITokenGuide,Portal
+from portal_interfaces import ITokenGuide, Portal
 from login_portal import LoginPortal
 from constants import TKeys
 from user_token import User_Token
 from ui import portal_ui_container, foh_ui_container
 from functools import partial
 
+
 class MainLoop:
     def __int__(self):
         pass
 
-class MainPortal(ITokenGuide,Portal):
+
+class MainPortal(ITokenGuide, Portal):
     """Main Portal, _portal is the current context"""
 
     def __init__(self, exit_func):
         self._exit = partial(exit_func[0], exit_func[1])
         self._token = None
         self._portal = None
+        self.login()
+        print('portal:', self._portal)
+        print(self._token)
         from ui import portal_ui_container
         self._ui = portal_ui_container(self)
-        # self._ui = {'main': portal_ui_container}
-        # self.portal_commands = {'help': partial(self._ui['main'].print_help, self.portal_commands),
-        #                         'login': self.login,
-        #                         'exit': self._exit}
-        self.login()
-        # main loop
+
         while True:
             self._ui.user_in()
-
-    #     while True:
-    #         user_in = input("type help for commands")
-    #         if user_in in self.portal_commands:
-    #             self.portal_commands.get(user_in)()
-    #         else:
-    #             print('invalid input')
-    #
-    # def _print_help(self):
-    #     for key in self.portal_commands.keys():
-    #         print(key)
 
     def posses_token(self, user: 'User_Token'):
         self._token = user
@@ -47,10 +36,14 @@ class MainPortal(ITokenGuide,Portal):
     def access_level(self) -> int:
         return 0
 
-    def get_portal(self) -> vars:
+    def get_context(self) -> Portal:
         return self._portal
+
     def get_exit(self) -> partial:
         return self._exit
+
+    def get_ui(self) -> portal_ui_container:
+        return self._ui
 
     def login(self):
         print('logging in..')
@@ -58,31 +51,30 @@ class MainPortal(ITokenGuide,Portal):
         if self._portal.login():
             self._token: User_Token
             self._portal = self._token.data[TKeys.PortalKey]()
+            print(self._portal)
             print("Login Successful")
 
 
 class FOHPortal(Portal):
-    def __init__(self, main_portal):
-        from ui import foh_ui_container
-
-        # self.portal_commands = {'menu': partial(self._ui['main'].print_help, self.portal_commands),
-        #                         'dinning_room': self.login,
-        #                         'orders': self._exit}
-        # print("Front of House Portal Access")
-        # self.parent = main_portal
-        # self.parent.ui.context = foh_ui_container()
-        self._ui = foh_ui_container()
-        self.context = self.set_context_dinning()
+    def __init__(self):
+        self._context = None
+        self.set_context_dinning()
+        self._ui = foh_ui_container(self)
+        print('context:', self._context)
 
     def set_context_menu(self):
-        self.context = Menu()
+        self._context = Menu()
 
     def set_context_dinning(self):
         from dinning_room import Dinning_Room
-        self.context = Dinning_Room()
+        self._context = Dinning_Room()
 
     def get_ui(self) -> foh_ui_container:
         return self._ui
+
+    def get_context(self) -> Portal:
+        print('context:', self._context)
+        return self._context
 
 
 from singleton import Singleton
@@ -90,16 +82,18 @@ from singleton import Singleton
 
 class Menu(Portal):
     """holds the menu data for the session"""
-    #TODO: create acl permissions for removing menu item during service or adding daily specials
+
+    # TODO: create acl permissions for removing menu item during service or adding daily specials
 
     def __int__(self):
+        from ui import menu_ui_container
         self.main_menu = None
         self.sides_menu = None
         self.cold_drinks_menu = None
         self.hot_drinks_menu = None
         self.dessert_menu = None
         self.menu = None
-        self.ui =
+        self.ui = menu_ui_container(self)
 
     def load_menu(self, token: 'User_Token', token_guide: 'ITokenGuide'):
         """since menuDB facade needs permissions, we need to use it, exit it,
@@ -127,7 +121,6 @@ class Menu(Portal):
         except KeyError:
             print('item does not exist @ Menu -> get_item')
             return {}
-
 
 
 class BOHPortal(Portal):
