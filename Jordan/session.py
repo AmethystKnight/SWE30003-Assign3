@@ -2,7 +2,7 @@ import uuid
 from multiprocessing import Process
 from singleton import Singleton
 from acl import ACL
-from portal import Portal
+from portal import MainPortal
 
 class Session(Singleton):
     from multiprocessing import Process
@@ -23,7 +23,7 @@ class Session(Singleton):
         else:
             self.sessions.update({mac: None})
             print('session ID: ', mac)
-            self.sessions[mac] = Portal((self.session_exit, mac))
+            self.sessions[mac] = MainPortal((self.session_exit, mac))
 
     def session_exit(self, mac):
         if mac in self.sessions:

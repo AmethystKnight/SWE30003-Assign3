@@ -6,13 +6,14 @@ from user_token import User_Token
 class LoginPortal:
     """Logs in user and instantiates portal once it is finished processing
     via ACL inside Login"""
+
     def __init__(self, portal):
-        self._user_name = None
-        self._password = None
-        self._has_logged = False
+        self._user_name: str = None
+        self._password: str = None
+        self._has_logged: bool = False
         self._p_ref = portal
         self._logins = [('admin', 'password'), ('foh', 'password'), ('boh', 'password')]
-
+        #TODO: secure login info
     def login(self) -> bool:
         from acl import ACL
 
