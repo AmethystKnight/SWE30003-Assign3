@@ -34,6 +34,7 @@ class ACL(ITokenGuide):
             return False
         else:
             next_guide.posses_token(self._token)
+            self._token = None
             return True
 
     def access_level(self) -> int:
