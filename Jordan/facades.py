@@ -35,6 +35,8 @@ class Facade_DB(Singleton, ITokenGuide):
                 exit()
 
     def guide_token(self, next_guide: 'ITokenGuide'):
+        print(next_guide)
+        print(self._token)
         self._context = None
         next_guide.posses_token(self._token)
         self._token = None

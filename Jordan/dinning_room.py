@@ -67,11 +67,11 @@ class Dinning_Room:
                 self._booking_reference[table_number][t][1] = False
 
     def get_all_tables_basic(self) -> list:
-        """Returns all tables as a representation of their number formatted like: Table_n and reservation value."""
+        """Returns all tables as a list of tuples formatted like: (Table_n, reservation value)."""
         tables = []
         for table_number, table_info in self._tables.items():
             reservation_status = any(reservation[1] for reservation in table_info['reservation'].values())
-            tables.append(f"Table_{table_number}, {'Reserved' if reservation_status else 'Free'}")
+            tables.append((f"Table_{table_number}", 'Reserved' if reservation_status else 'Free'))
         return tables
 
     def get_ui(self) -> 'dinning_room_ui_container':

@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a021ee40-bac8-454f-bf4b-2054debdc5e0" name="Changes" comment="ui change save">
+    <list default="true" id="a021ee40-bac8-454f-bf4b-2054debdc5e0" name="Changes" comment="debugging ui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Jordan/dinning_room.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/dinning_room.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jordan/invoice_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/invoice_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jordan/login_portal.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/login_portal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jordan/facades.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/facades.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Jordan/portal.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/portal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jordan/session.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/session.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Jordan/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jordan/ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716970259483</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="debugging ui">
+      <created>1716982899493</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716982899493</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -123,6 +128,7 @@
     <MESSAGE value="meta" />
     <MESSAGE value="refactored the code to be in their own files, main.py to play the logging loop" />
     <MESSAGE value="ui change save" />
-    <option name="LAST_COMMIT_MESSAGE" value="ui change save" />
+    <MESSAGE value="debugging ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="debugging ui" />
   </component>
 </project>
